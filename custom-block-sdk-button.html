@@ -254,24 +254,26 @@ if (typeof(module) === 'object') {
 
   </script>
 
-<label for="cBtnText"><strong>Button Text:</strong></label><br>
-<input type="text" id="cBtnText" value="My Button Text" onkeyup="changeBtnParms();" style="width:100%;" /><br><br>
-<label for="cBtnColor"><strong>Button Color (Name or Hex Code):</strong></label><br>
-<input type="text" id="cBtnColor" value="#0077C7" onkeyup="changeBtnParms();" style="width:100%;" /><br><br>
-    <label for="cBtnUrl"><strong>Link:</strong></label><br>
+<label for="cBtnText"><strong>Button Text</strong></label><br>
+<input type="text" id="cBtnText" value="My Button Text" onkeyup="changeBtnParms();" style="width:70%;" /><br><br>
+<label for="cBtnColor"><strong>Button Color</strong> (Name or Hex Code)</label><br>
+<input type="text" id="cBtnColor" value="#0077C7" onkeyup="changeBtnParms();" style="width:50%;" /><br><br>
+    <label for="cBtnUrl"><strong>Link</strong></label><br>
 <input type="url" id="cBtnUrl" value="https://" onkeyup="changeBtnParms();" style="width:100%;" /><br><br>
-    <label for="cBtnTxtClr"><strong>Text Color (Name or Hex Code):</strong></label><br>
-<input type="text" id="cBtnTxtClr" value="White" onkeyup="changeBtnParms();" style="width:100%;" /><br><br>
-    <label for="cBtnBgClr"><strong>Background Color (Name or Hex Code):</strong></label><br>
-<input type="text" id="cBtnBgClr" value="#E2E8F4" onkeyup="changeBtnParms();" style="width:100%;" /><br><br>
-    <label for="cBtnBrWd"><strong>Border Width</strong></label><br>
-<input type="Number" id="cBtnBrWd" value="1" onkeyup="changeBtnParms();" style="width:100%;" /><br><br>
-    <label for="cBtnFntSz"><strong>Font size</strong></label><br>
-<input type="Number" id="cBtnFntSz" value="18" onkeyup="changeBtnParms();" style="width:100%;" /><br><br>
-    <label for="cBtnWth"><strong>Button Width (outlook)</strong></label><br>
-<input type="Number" id="cBtnWth" value="200" onkeyup="changeBtnParms();" style="width:100%;" /><br><br>
-    <label for="cBtnHgt"><strong>Button Height (outlook)</strong></label><br>
-<input type="Number" id="cBtnHgt" value="50" onkeyup="changeBtnParms();" style="width:100%;" /><br><br>
+    <label for="cBtnTxtClr"><strong>Text Color </strong>(Name or Hex Code)</label><br>
+<input type="text" id="cBtnTxtClr" value="White" onkeyup="changeBtnParms();" style="width:50%;" /><br><br>
+    <label for="cBtnBgClr"><strong>Background Color </strong>(Name or Hex Code)</label><br>
+<input type="text" id="cBtnBgClr" value="#E2E8F4" onkeyup="changeBtnParms();" style="width:50%;" /><br><br>
+    <label for="cBtnFntSz"><strong>Font size</strong> (in px)</label><br>
+<input type="text" id="cBtnFntSz" value="18" onkeyup="changeBtnParms();" style="width:30%;" /><br><br>
+    
+    <label for="cBtnWth"><strong>Button Width for Outlook</strong> (in px)</label><br>
+<input type="text" id="cBtnWth" value="200" onkeyup="changeBtnParms();" style="width:30%;" /><br><br>
+    <label for="cBtnHgt"><strong>Button Height for Outlook</strong> (in px)</label><br>
+<input type="text" id="cBtnHgt" value="50" onkeyup="changeBtnParms();" style="width:30%;" /><br><br>
+   
+    
+    
 
 <script>
 // Test changes to this block by using https://blocktester.herokuapp.com. This is the actual code to that powers this specific content block./
@@ -283,10 +285,10 @@ function restoreParms() {
    if (objData.cBtnUrl) { document.getElementById('cBtnUrl').value = objData.cBtnUrl; };
    if (objData.cBtnTxtClr) { document.getElementById('cBtnTxtClr').value = objData.cBtnTxtClr; };
    if (objData.cBtnBgClr) { document.getElementById('cBtnBgClr').value = objData.cBtnBgClr; };
-   if (objData.cBtnBrWd) { document.getElementById('cBtnBrWd').value = objData.cBtnBrWd; };
    if (objData.cBtnFntSz) { document.getElementById('cBtnFntSz').value = objData.cBtnFntSz; };
    if (objData.cBtnWth) { document.getElementById('cBtnWth').value = objData.cBtnWth; };
    if (objData.cBtnHgt) { document.getElementById('cBtnHgt').value = objData.cBtnHgt; };
+  
  });
 }
 
@@ -297,10 +299,10 @@ function saveParms() {
    cBtnUrl:  document.getElementById('cBtnUrl').value,
    cBtnTxtClr:  document.getElementById('cBtnTxtClr').value,
     cBtnBgClr:  document.getElementById('cBtnBgClr').value,
-   cBtnBrWd:  document.getElementById('cBtnBrWd').value,
    cBtnFntSz:  document.getElementById('cBtnFntSz').value,
    cBtnWth:  document.getElementById('cBtnWth').value,
    cBtnHgt:  document.getElementById('cBtnHgt').value,
+   
  };
 
  sdk.setData(objData, function(setData) {
@@ -314,18 +316,12 @@ function changeBtnParms() {
    cBtnUrl = document.getElementById('cBtnUrl').value;
    cBtnTxtClr = document.getElementById('cBtnTxtClr').value;
    cBtnBgClr = document.getElementById('cBtnBgClr').value;
-   cBtnBrWd = document.getElementById('cBtnBrWd').value;
    cBtnFntSz = document.getElementById('cBtnFntSz').value;
    cBtnWth = document.getElementById('cBtnWth').value;
    cBtnHgt = document.getElementById('cBtnHgt').value;
 
-  cContent = '<div align="center" style="background-color:' + cBtnBgClr + ';"><br/><!--[if mso]>
-  <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="' + cBtnUrl + '" style="height:' + cBtnHgt + 'px;v-text-anchor:middle;width:' + cBtnWth + 'px;" arcsize="11%" strokecolor="' + cBtnBrWd + 'px" fillcolor="' + cBtnColor + '">
-    <w:anchorlock/>
-    <center style="color:' + cBtnBgClr + ';font-family:sans-serif;font-size:' + cBtnFntSz + 'px;font-weight:bold;">' + cBtnText + '</center>
-  </v:roundrect>
-<![endif]-->
-<a href="' + cBtnUrl + '" style="background-color:' + cBtnColor + '; color:' + cBtnTxtClr + '; display:inline-block; font-family:sans-serif; font-size:' + cBtnFntSz + 'px; border-radius:4px; padding-top:5px;padding-bottom:5px; border:' + cBtnBrWd + 'px; text-align:center;mso-border-alt:none;word-break:keep-all; font-weight:bold; text-align:center; text-decoration:none; padding:10px 20px;">' + cBtnText + '</a><br/><br/></div>';
+
+  cContent = '<div align="center" style="background-color:' + cBtnBgClr + ';"><br/><br/><a href="' + cBtnUrl + '" style="background-color:' + cBtnColor + '; color:' + cBtnTxtClr + '; display:inline-block; font-family:sans-serif; font-size:' + cBtnFntSz + 'px; border-radius:4px; text-align:center;word-break:keep-all; font-weight:bold; text-align:center; text-decoration:none; padding:10px 20px; width:auto;-webkit-text-size-adjust:none;mso-hide:all;">' + cBtnText + '</a><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" style="height: '+ cBtnHgt + 'px; v-text-anchor:middle;width:' + cBtnWth + 'px;" arcsize="11%" fillcolor="' + cBtnColor + '"><w:anchorlock/><center style="color:' + cBtnBgClr + ';font-family:sans-serif;font-weight:bold;">' + cBtnText + '</center></v:roundrect><br/><br/><br/></div>';
 
   cSuperContent = '<br /> '+ cContent;
   sdk.setContent(cContent, function(setContent) {
